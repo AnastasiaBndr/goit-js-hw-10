@@ -2,10 +2,10 @@
   <img src="${t.image.url}" alt="${t.name}">
   <div class="description">
         <h3 class="card-title">${t.name}</h3>
-        <p class="card-text">${t.descroption}</p>
+        <p class="card-text">${t.description}</p>
         <h4 class="card-title">Temperament</h4>
         <p class="card-text">${t.temperament}</p>
   </div>
   
 </div>`;o.catContainer.innerHTML=e,o.loaderContainer.classList.add("is-hidden")})(a),2e3)})}).catch(e=>{t(s).Report.info("Error!","Cats ran away somewhere..","Ok")})}();
-//# sourceMappingURL=index.056a6320.js.map
+//# sourceMappingURL=index.fba62feb.js.map

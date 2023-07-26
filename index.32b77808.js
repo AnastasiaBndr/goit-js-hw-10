@@ -2,10 +2,10 @@ function t(t){return t&&t.__esModule?t.default:t}var e,i,a="undefined"!=typeof g
   <img src="${t.image.url}" alt="${t.name}">
   <div class="description">
         <h3 class="card-title">${t.name}</h3>
-        <p class="card-text">${t.descroption}</p>
+        <p class="card-text">${t.description}</p>
         <h4 class="card-title">Temperament</h4>
         <p class="card-text">${t.temperament}</p>
   </div>
   
 </div>`;o.catContainer.innerHTML=e,o.loaderContainer.classList.add("is-hidden")})(a),2e3)})}).catch(e=>{t(s).Report.info("Error!","Cats ran away somewhere..","Ok")});
-//# sourceMappingURL=index.07f0130e.js.map
+//# sourceMappingURL=index.32b77808.js.map
