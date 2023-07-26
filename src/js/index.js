@@ -47,7 +47,7 @@ function renderCatCard(cat){
   <img src="${cat.image.url}" alt="${cat.name}">
   <div class="description">
         <h3 class="card-title">${cat.name}</h3>
-        <p class="card-text">${cat.descroption}</p>
+        <p class="card-text">${cat.description}</p>
         <h4 class="card-title">Temperament</h4>
         <p class="card-text">${cat.temperament}</p>
   </div>
