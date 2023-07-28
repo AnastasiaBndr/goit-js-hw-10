@@ -1,47 +1,50 @@
 import SlimSelect from 'slim-select';
-import {fetchBreed} from './cat-api';
+import { fetchBreed } from './cat-api';
 import Notiflix from 'notiflix';
 
 
-const refs ={
+const refs = {
   catContainer: document.querySelector(".cat-info"),
   loaderContainer: document.querySelector(".loader"),
   searchForm: document.querySelector(".breed-select"),
 
 };
 
-const breeds = fetchBreed();
 
-breeds.then(cats=>{
+fetchBreed().then(cats => {
 
-  cats.forEach((cat)=>{
+  cats.forEach((cat) => {
     var opt = document.createElement("option");
-    opt.value=cat.id;
-    opt.text=cat.name;
+    opt.value = cat.id;
+    opt.text = cat.name;
 
     refs.searchForm.appendChild(opt);
   })
 
- const slim = new SlimSelect({
-  select: refs.searchForm,
-  settings: {
-  }});
+  const slim = new SlimSelect({
+    select: refs.searchForm,
+    settings: {
+    }
+  });
 
-    refs.searchForm.addEventListener('change', (event) => {
-      refs.catContainer.innerHTML = "";
-      const selectedOption = event.target.value;
-      const selectedCat = cats.find(cat => cat.id === selectedOption);
-      refs.loaderContainer.classList.remove("is-hidden");
-      const timerId=setTimeout(()=>renderCatCard(selectedCat), 2000);
-    });
-})
-.catch(error => {
-  Notiflix.Report.info("Error!", "Cats ran away somewhere..", "Ok"); 
+  refs.searchForm.addEventListener('change', (event) => {
+    refs.catContainer.innerHTML = "";
+    const selectedOption = event.target.value;
+    const selectedCat = cats.find(cat => cat.id === selectedOption);
+    refs.loaderContainer.classList.remove("is-hidden");
+    const timerId = setTimeout(() => renderCatCard(selectedCat), 2000);
+
+
+  });
+}).catch(error => {
+  Notiflix.Report.info("Error!", "Cats ran away somewhere..", "Ok");
 });
 
 
 
-function renderCatCard(cat){
+
+function renderCatCard(cat) {
+  try{
   console.log(cat);
   const markup = `<div class="card">
   <img src="${cat.image.url}" alt="${cat.name}">
@@ -57,6 +60,11 @@ function renderCatCard(cat){
   refs.catContainer.innerHTML = markup;
 
   refs.loaderContainer.classList.add("is-hidden");
+}catch(err){
+  Notiflix.Report.info("Oops!", "This cat ran away somewhere.. Choose another one..", "Ok"); 
+  refs.loaderContainer.classList.add("is-hidden");
+}
+
 }
 
 
