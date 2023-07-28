@@ -10,7 +10,6 @@ const refs = {
 
 };
 
-
 fetchBreed().then(cats => {
 
   cats.forEach((cat) => {
