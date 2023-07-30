@@ -9,8 +9,10 @@ const URL = `https://api.thecatapi.com/v1/breeds`;
 export async function fetchBreed() {
     try {
       const res = await axios.get(URL);
-      const сatsBreeds = res.data.filter(cat => cat.image?.url != null || cat.id === 'mala');
-      return сatsBreeds
+      console.log(res.data);
+      return res;
+      // const сatsBreeds = res.data.filter(cat => cat.image?.url != null || cat.id === 'mala');
+      // return сatsBreeds
     } catch (error) {
       Notiflix.Report.info("Error!", "Cats ran away somewhere..", "Ok");
       throw error;
