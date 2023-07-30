@@ -6,10 +6,13 @@ axios.defaults.headers.common["x-api-key"] = "live_8dKphs0W18lTFRIxlVkHb5ILtwEMb
 
 const URL = `https://api.thecatapi.com/v1/breeds`;
 
-export function fetchBreed() {
-
-    return axios.get(URL).then((cats) => { return cats.data = cats.data.filter(img => img.image?.url != null || img.id === 'mala'); }).catch(error => {
-        Notiflix.Report.info("Error!", "Cats ran away somewhere..", "Ok");
-    });
-
-}
+export async function fetchBreed() {
+    try {
+      const res = await axios.get(URL);
+      const сatsBreeds = res.data.filter(cat => cat.image?.url != null || cat.id === 'mala');
+      return сatsBreeds
+    } catch (error) {
+      Notiflix.Report.info("Error!", "Cats ran away somewhere..", "Ok");
+      throw error;
+    }
+  }
