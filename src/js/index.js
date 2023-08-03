@@ -20,11 +20,11 @@ fetchBreed().then(cats => {
     refs.searchForm.appendChild(opt);
   })
 
-  // const slim = new SlimSelect({
-  //   select: refs.searchForm,
-  //   settings: {
-  //   }
-  // });
+  const slim = new SlimSelect({
+    select: refs.searchForm,
+    settings: {
+    }
+  });
 
   refs.searchForm.addEventListener('change', (event) => {
     refs.catContainer.innerHTML = "";
@@ -36,7 +36,7 @@ fetchBreed().then(cats => {
 
   });
 }).catch(error => {
-  Notiflix.Report.info("Error!", "Cats ran away somewhere..", "Ok");
+  Notiflix.Report.info("Error!", "Cats ran away somewhere..", "Okaaay");
 });
 
 
