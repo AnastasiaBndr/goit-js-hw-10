@@ -6,7 +6,7 @@ const API_KEY ='api_key=live_8dKphs0W18lTFRIxlVkHb5ILtwEMbmXoQKgXYGOIwMxvPTJidJB
 
 const URL = `https://api.thecatapi.com/v1/breeds/?`;
 
-export async function fetchBreed() {
+export function fetchBreed() {
 
       console.log(URL+API_KEY);
       return axios.get(URL+API_KEY)
